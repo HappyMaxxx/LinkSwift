@@ -1,0 +1,296 @@
+{% extends 'shorter/base.html' %}
+{% load tags %}
+{% block styles %}
+<style>
+    /* Обнулення базових стилів */
+    html, body, div, span, * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    a{
+        text-decoration: none;
+        color: #000;
+    }
+    u{
+        text-decoration: none;
+    }
+    input {
+        border: none;
+        text-decoration: none;
+    }
+    /*  */
+    body{
+        width: 100%;
+        height: 100%;
+
+    }
+    .container {
+        min-width: 100px;
+        min-height: 800px;
+        background-color: #f8fcfd;
+        align-items: center;
+        text-align: center;
+    }
+    .header {
+        background-color: #cee684;
+        width: auto;
+        min-height: 150px;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .content {
+        width: auto;
+        height: 80%;
+    }
+    .logo {
+        padding-top: 4.16%;
+        width: 203px;
+        height: 44px;
+    }
+    .cent_text {
+        width: 1309.5px;
+        align-items: center;
+        text-align: center;
+        height: 66px;
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 66px;
+        color: #3E3E3E;
+    }
+    .sidebars {
+        width: 1309.5px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .sidebar1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0;
+        width: 49%;
+        box-sizing: border-box;
+        align-items: center;
+        text-align: center;
+        min-height: 300px;
+        position: relative;
+    }
+    
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 0 3%;
+        box-sizing: border-box;
+    }
+
+    .sidebar2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        text-align: center;
+        min-height: 300px;
+    }
+
+    .rect1 {
+        margin-top: 3%;
+        margin-bottom: 3%;
+        width: 507px;
+        height: 109px;
+        padding-bottom: 3px;
+        background: rgba(147, 161, 0, 0.12);
+        border-radius: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .rect1_text {
+        width: 512px;
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 66px;
+        align-items: center;
+        text-align: center;
+        color: #3E3E3E;
+    }
+
+    .rect2 {
+        width: 584px;
+        height: 74px;
+        background: #EFFF98;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        margin-bottom: 3%;
+    }
+
+    .rect3 {
+        width: 589px;
+        height: 78px;
+        background: #EFFF98;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+    .rect_tex {
+        position: absolute;
+        width: 327px;
+        line-height: 100px;
+        color: #3E3E3E;
+    }
+    .block {
+        display: inline-block;
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        color: #3E3E3E;
+    }
+    .inp {
+        margin-left: 2%;
+        background: #D5E486;
+        border-radius: 50px;
+        width: 251px;
+        height: 80%;
+        border-color: none;
+        padding: 0 10px;
+    }
+    .send_btn {
+        margin-top: 20px;
+        width: 240px;
+        height: 67px;
+        background: linear-gradient(90deg, #CCE37B 0%, #AEC211 100%);
+        border-radius: 25px;
+        cursor: pointer;
+        font-family: 'Julius Sans One';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 66px;
+        color: #363736;
+    }
+    .reit {
+        margin-top: 2%;
+        width: 286px;
+        min-height: 300px;
+        background: #e5ecba;
+        border-radius: 15px;
+        align-items: center;
+        text-align: center;
+    }
+    .reit_rect {
+        width: 286px;
+        height: 75px;
+        background: rgba(179, 199, 34, 0.79);
+        border-radius: 15px;
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 66px;
+        align-items: center;
+        letter-spacing: 0.16em;
+        color: #363736;
+        box-sizing: border-box;
+    }
+    .reit_item {
+        width: 286px;
+        height: 75px;
+        background: #eef3d8;
+        margin-top: 3px;
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 66px;
+        align-items: center;
+        letter-spacing: 0.16em;
+        color: #363736;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 25px;
+    }
+    .item_text {
+        display: inline-block;
+    }
+    .item_count {
+        display: inline-block;
+    }
+    .errorlist{
+        list-style-type: none;
+        color: red;
+        font-size: large;
+        font-family: 'Manrope';
+    }
+</style>
+{% endblock styles %}
+{% block content %}
+<div class="container" width="device-width" >
+    <div class="content">
+        <div class="cent_text"><p>Перетвори свої довгі посилання в миттєві швидкі стежки до успіху! Приєднуйся до нас сьогодні і роби життя в мережі простішим!</p></div>
+        <div class="sidebars">
+            <div class="sidebar1">
+                <div class="rect1">
+                    <p class="rect1_text">Скорочення посилання</p>
+                </div>
+                <div class="form-container">
+                    <form method="post">
+                        {% csrf_token %}
+                        {% for field in form %}
+                        <div class="rect2">
+                            <div class="block"><p class="rect_text"> {{field.label}}</p></div>
+                            <div class="block">{{field}}</div>
+                        </div>
+                        {% if field.errors %}
+                            <p class="error">{{field.errors}}</p>
+                        {% endif %}
+                        {% endfor %}
+                        <button class="send_btn">Скоротити</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="sidebar2">
+                <div class="reit">
+                    <div class="reit_rect">
+                        <div class="item_text">РЕЙТИНГ</div>
+                    </div>
+                    {% top_links as links %}
+                    {% for link in links %}
+                    <div class="reit_item">
+                        <div class="item_text"><a href="/link_stat/{{link.short_link}}">{{link.short_link}}</a></div>
+                        <div class="item_count"><b>{{link.count}}</b></div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

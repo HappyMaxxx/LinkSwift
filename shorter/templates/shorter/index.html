@@ -1,0 +1,257 @@
+{% extends 'shorter/base.html' %}
+{% load tags %}
+{% load static %}
+{% block styles %}
+<style>
+    /* Обнулення */
+    /* Обнулення базових стилів */
+    html, body, div, span, * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+
+    .header{
+        width: 100%;
+        height: 183px;
+        background-color: #CFE684;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /*  */
+    /* головне */
+    body{
+        background-color: #F9FCFC;
+    }
+    .welcome{
+        width: 100%;
+        height: 620px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .text{
+        font-family: "Manrope", sans-serif;
+        font-size: 40px;
+        margin-left: 80px;
+        z-index: 2;
+        color: #000000;
+    }
+    .to_shorten{
+        width: 260px;
+        height: 64px;
+        border-radius: 30px;
+        background: linear-gradient(to right, #B2E684, #ADC10C);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 44px 20% ;
+        cursor: pointer;
+    }
+    /*  */
+    .link{
+        width: 100%;
+        height: 187;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .link_text{
+        width: 1280px;
+        height: 99px;
+        background-color: #E2F4A8;
+        border-radius: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .link p{
+        font-family: "Julius Sans One", sans-serif;
+        font-size: 20px;
+        color: #505801;
+        margin-left: 5%;
+    }
+    .link img{
+        position: absolute;
+        right: 5%;
+        margin-bottom: -6%;
+    }
+    .link_text button{
+        width: 218px;
+        height: 55px;
+        border-radius: 25px;
+        background-color: #93A100;
+        color: #ffffff;
+        margin-right: 25px;
+        font-family: "Julius Sans One", sans-serif;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    /*  */
+    .information{
+        width: 100%;
+        height:100%;
+        margin-top: 85px;
+        font-family: "Julius Sans One", sans-serif; 
+        text-align: center;
+    }
+    .information h2{
+        color: #4C4C4C;
+        font-size: 48px;
+    }
+    .info{
+        height: 500px;
+        display: flex;
+        margin: 100px 128px 0 133px;
+        justify-content: space-between;
+    }
+
+    .info1 {
+        width: 665px;
+        height: 154px;
+        background-color: rgba(203, 226, 120, 0.39); 
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center ;
+        padding: 0 10px;
+        font-size: 22px;
+        margin-bottom: 50px;
+    }
+    .info2 {
+        width: 665px;
+        height: 154px;
+        background-color: rgba(219, 243, 1, 0.39); 
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center ;
+        padding: 0 10px;
+        font-size: 22px;
+    }
+    .info3{
+        width: 391px;
+        height: 393px;
+        border-radius: 100px;
+        background-color: rgba(135, 193, 89, 0.39);
+        text-align: center;
+    }
+    .info3 h4 {
+        font-size: 27px;
+        margin-top: 75px
+    }
+    .info3 p {
+        margin-top: 70px;
+        font-size: 22px;
+    }
+
+    .qa, .tip {
+        width: 100%;
+        height: 440px;
+        display: flex; 
+        justify-content: center; 
+        font-family: "Manrope", sans-serif;
+        margin-bottom: 88px;
+
+    }
+    .qa-code{
+        width: 941px;
+        height: 366px;
+        border-radius: 50px;
+        background-color: rgba(154, 254, 5, 0.15);
+        margin-right: 58px;
+        padding: 0 15px 0 15px;
+    }
+    .qa-code h3{
+        font-size: 36px;
+        margin: 10px 0 10px 15px;
+        text-align: start;
+    }
+    .qa-code p{
+        font-size: 27px;
+        margin: 15px 10px 5px 15px;
+        text-align: start;
+    }
+    .tippok {
+        width: 914px;
+        height: 397px;
+        border-radius: 50px;
+        background-color: rgba(241, 254, 153, 0.39);
+        padding: 0 15px 0 15px;
+    }
+    .tippok h3{
+        font-size: 36px;
+        margin: 10px 42px 10px 0;
+        text-align: end;
+    }
+    .tippok p{
+        font-size: 27px;
+        margin: 5px 42px 5px 10px;
+        text-align: end;
+    }
+</style>
+{% endblock styles %}
+{% block content %}
+
+<div class="main">
+    <div class="welcome">
+        <div class="text">
+            <p>Перетвори свої довгі посилання в миттєві швидкі стежки до успіху! Приєднуйся до нас сьогодні і роби життя в мережі простішим!</p>
+            <a href=" {% url 'shorter' %} "><button class="to_shorten">Скоротити</button></a>
+        </div>
+        <div class="img">
+            <img width="706" height="520" src=" {% static 'comp.png' %} " alt="Комп'ютер">
+        </div>
+    </div>
+    <div class="link">
+        <div class="link_text">
+            <p>Вставте довге посилання та скоротіть його в один клік</p>
+            <a href=" {% url 'shorter' %} "><button>Натисни на мене</button></a>
+        </div>
+        <img src=" {% static 'mouse.png' %} " alt="mouse">
+    </div>
+</div>
+<div class="information">
+    <h2>Зараз скорочувати посилання - легко!</h2>
+    <div class="info">
+        <div class="2info">
+            <div class="info1">
+                <p>Всього в 1 клік Ви отримуєте персональний коротку адресу. Даний sURL — статичний, а значить завжди з вами</p>
+            </div>
+            <div class="info2">
+                <p>Ви самі обираєте назву для посилання, що робить його більш простим і зрозумілим для використання</p>
+            </div>
+        </div>
+        <div class="info3">
+            <h4>Детальна статистика ваших посилань</h4>
+            <p>Слідкуйте за статистикою ваших посилань,, дивлячись прямо на сайті</p>
+        </div>
+    </div>
+    <div class="qa">
+        <div class="qa-code">
+            <h3>Спростіть QR-коди зі скороченими URL-адресами!</h3>
+            <p>Розмір QR-кодів залежить від довжини посилання, що ви використовуєте. Зазвичай вам потрібно включити повний шлях з фільтрами та параметрами, реферальний ідентифікатор, UTM-мітку, що може зробити кінцевий URL дуже великим і зробить QR-код складним для читання та друку. З нашим сервісом ви можете обернути будь-яке довге посилання у короткий лінк типу surl.li/clck і отримати мінімалістичний та зручний для друку і сканування QR-код.</p>
+        </div>
+        <img src=" {% static 'qr-code.png' %} " alt="qr-code">
+    </div>
+    <div class="tip">
+        <img src=" {% static 'message-from-laptop.png' %} " alt="">
+        <div class="tippok">
+            <h3>Максимально скорочені лінки для вашої стратегії в соціальних мережах!</h3>
+            <p>Довгі URL-адреси в соціальних мережах виглядають неестетично і можуть бути обрізані, перешкоджаючи користувачам. Замість цього, короткі URL-адреси, такі як LINKSWIFT, приваблюють виглядом, легко копіюються і навіть можуть запам'ятатися. При цьому ви отримуєте докладну статистику кожного переходу, незалежно від того, де ви розміщуєте посилання - у Facebook, Telegram або Twitter. </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
