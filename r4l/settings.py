@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-u@2!gsp$j@2puj%eg=j@d93v(!10o58cdlpjc6p!d%rf1whn_v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'https://linkswift-1.onrender.com', 'linkswift-1.onrender.com']
 
 
 # Application definition
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'shorter.apps.ShorterConfig'
 ]
 
-ALLOWED_HOSTS = ['127.0.0.1']
 MY_SITE_DOMAIN = 'http://127.0.0.1:8000/'
 
 MIDDLEWARE = [
